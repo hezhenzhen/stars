@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Canvas</title>
+  <style>
+      *{ margin: 0; padding: 0;}
+      canvas{display: block; margin: 0; padding: 0;}
+  </style>
+</head>
+<body>
+<canvas id="myCanvas" width="1440" height="600"></canvas>
+
+<script src="js/jquery-3.1.1.min.js"></script>
+<script>
+  window.requestAnimFrame = (function(){
+      return window.requestAnimationFrame || window.webkitRequestAnimationFrame || window.mozRequestAnimationFrame ||window.oRequestAnimationFrame || window.msRequestAnimationFrame ||
+              function(callback, element){
+                  return window.setTimeout(callback, 1000 / 60);
+              };
+  })();
+
+  clientW = document.body.clientWidth;
+  clientH = document.documentElement.clientHeight;
+  scrollW = document.body.clientWidth;
+  scrollH = document.body.clientHeight;
+
+  var c=document.getElementById("myCanvas");
+  var ctx=c.getContext("2d");
+  c.width = clientW;
+  c.height = clientH;
+  var starImg = new Image();
+  starImg.src = 'img/star.png';
+  var num = 200;
+
+  var delayTime;
+  var lastTime;
+  var stars = [];
+
+  function gameLoop(){
+      window.requestAnimFrame(gameLoop);
+      var now = Date.now();
+      delayTime = now - lastTime;
+      lastTime = now;
+      drawBg();
+      drawStars();
+  }
+
+  function drawBg(){
+      ctx.fillStyle = '#003366';
+      ctx.fillRect(0, 0, clientW, clientH);
+  }
+
+  var starObj = function(){
+      this.x = 0;
+      this.y = 0;
+      this.picNo = 0;
+      this.timer = 0;
+  };
+  starObj.prototype = {
+      init: function(){
+          this.x = Math.floor(Math.random() * clientW);
+          this.y = Math.floor(Math.random() * clientH);
+          this.picNo = Math.floor(Math.random() * 7);
+      },
+      update: function(){
+          this.timer += delayTime;
+          if(this.timer > 50){
+              this.picNo += 1;
+              this.picNo %= 7;
+              this.timer = 0;
+          }
+      },
+      draw: function(){
+          ctx.drawImage(starImg, this.picNo*7, 0, 7, 7, this.x, this.y, 7, 7);
+          ctx.restore();
+      }
+  };
+
+  function drawStars(){
+      for(var i = 0; i < num; i++){
+          stars[i].update();
+          stars[i].draw();
+          stars[i].x += 1;
+          //实现星星的移动
+          if(stars[i].x > clientW){
+              stars[i].x = 0
+          }
+      }
+  }
+
+  $(function(){
+      lastTime = Date.now();
+      for(var i = 0; i < num; i++){
+          var _star = new starObj();
+          stars.push(_star);
+          stars[i].init();
+      }
+      gameLoop();
+  })
+</script>
+</body>
+</html>
