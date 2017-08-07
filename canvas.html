@@ -9,9 +9,9 @@
   </style>
 </head>
 <body>
-<canvas id="myCanvas" width="1440" height="600"></canvas>
+<canvas id="myCanvas"></canvas>
 
-<script src="/res/js/jquery-3.1.1.min.js"></script>
+<script src="res/js/jquery-3.1.1.min.js"></script>
 <script>
   window.requestAnimFrame = (function(){
       return window.requestAnimationFrame || window.webkitRequestAnimationFrame || window.mozRequestAnimationFrame ||window.oRequestAnimationFrame || window.msRequestAnimationFrame ||
@@ -30,7 +30,7 @@
   c.width = clientW;
   c.height = clientH;
   var starImg = new Image();
-  starImg.src = 'img/star.png';
+  starImg.src = 'res/img/star.png';
   var num = 200;
 
   var delayTime;
