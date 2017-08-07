@@ -1,0 +1,47 @@
+/**
+ * reset 
+ */
+html{font-size: 100%;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;}
+body,h1,h2,h3,h4,h5,h6,hr,p,blockquote,dl,dt,dd,ul,ol,li,pre,form,fieldset,legend,button,input,select,textarea,th,td{margin:0;padding:0}
+table{border-collapse:collapse;border-spacing:0}
+button,input,select,textarea{font-size:100%;font-size: 100%;vertical-align: baseline;*vertical-align: middle;font-family:"Microsoft YaHei","\u5FAE\u8F6F\u96C5\u9ED1","\5b8b\4f53","Helvetica Neue","Helvetica","STHeiti","tahoma","arial";}
+button,select {text-transform: none;}
+button,html input[type="button"],input[type="reset"],input[type="submit"] {-webkit-appearance: button;cursor: pointer;*overflow: visible;}
+button[disabled],html input[disabled] {cursor:default;}
+input[type="checkbox"],input[type="radio"]{box-sizing: border-box;padding: 0;*height: 13px;*width: 13px;}
+input[type="search"] {-webkit-appearance: textfield;-moz-box-sizing: content-box;-webkit-box-sizing: content-box;box-sizing: content-box;}
+input[type="search"]::-webkit-search-cancel-button,input[type="search"]::-webkit-search-decoration {-webkit-appearance: none;}
+input::-ms-clear{display:none;}
+textarea {overflow: auto;vertical-align: top;}
+input:-ms-input-placeholder,textarea:-ms-input-placeholder {color:#999 !important;}
+ol,ul{list-style:none}
+fieldset{border:0}
+img{border:0;-ms-interpolation-mode: bicubic;}
+em,i,u{font-style:normal}
+a,input,button,textarea{outline:0;}
+body{height:100%;font:12px/1.5 "Microsoft YaHei","\u5FAE\u8F6F\u96C5\u9ED1","\5b8b\4f53","Helvetica Neue","Helvetica","STHeiti","tahoma","arial";*line-height:1.5;min-width:1190px;background:#fff;color:#333;}
+a{color:#333;text-decoration:none}
+a:hover{text-decoration:none;color:#c00;}
+
+/* 辅助 */
+.clearfix:after{content:" ";display:table;clear:both;}.clearfix{*zoom:1}
+.hide{display:none;}
+.i-hide{display:none !important;}
+.highlight{color:#c00}
+.fl{float:left;}
+.fr{float:right;}
+
+/* 三角 */
+.triangle-r,.triangle-l,.triangle-t,.triangle-b{display:inline-block;width:0px;height:0;line-height:0;}
+.triangle-r{border:6px solid transparent;border-left-color:#333;border-style:dashed dashed dashed solid;}
+.triangle-l{border:6px solid transparent;border-right-color:#333;border-style:dashed solid dashed dashed;}
+.triangle-t{border:6px solid transparent;border-bottom-color:#333;border-style:dashed dashed solid dashed;}
+.triangle-b{border:6px solid transparent;border-top-color:#333;border-style:solid dashed dashed dashed;}
+
+/* 布局排版 */
+.container{width:1190px;margin:0 auto;}
+.container:after{content:" ";display:table;clear:both;}.container{*zoom:1}
+
+html, body{
+  height: 100%;
+}
